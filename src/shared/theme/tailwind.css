@@ -1,0 +1,26 @@
+/*
+ * Único arquivo CSS do projeto: entrada do Tailwind v4.
+ * A layer "mui" fica entre base e utilities, então as classes Tailwind
+ * sempre vencem os estilos padrão do MUI sem precisar de !important.
+ */
+@layer theme, base, mui, components, utilities;
+@import "tailwindcss";
+
+/* MUI aplica .dark/.light no <html> (colorSchemeSelector: 'class') */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens apontam para as CSS vars do MUI: uma única fonte de verdade de cores */
+@theme inline {
+  --color-bg: var(--mui-palette-background-default);
+  --color-surface: var(--mui-palette-background-paper);
+  --color-line: var(--mui-palette-divider);
+  --color-fg: var(--mui-palette-text-primary);
+  --color-muted: var(--mui-palette-text-secondary);
+  --color-primary: var(--mui-palette-primary-main);
+  --color-secondary: var(--mui-palette-secondary-main);
+  --color-success: var(--mui-palette-success-main);
+  --color-warning: var(--mui-palette-warning-main);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
