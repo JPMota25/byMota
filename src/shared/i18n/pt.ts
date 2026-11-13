@@ -1,0 +1,55 @@
+/** Dicionário fonte. en.ts é tipado a partir deste: chave faltando = erro de compilação. */
+export const pt = {
+  nav: {
+    section: 'Navegação',
+    overview: 'Visão geral',
+    architecture: 'Arquitetura',
+    modules: 'Módulos do ERP',
+    stack: 'Stack',
+    experience: 'Experiência',
+    contact: 'Contato',
+    labs: 'Labs',
+    soon: 'em breve',
+    openMenu: 'Abrir menu',
+  },
+  topbar: {
+    dashboard: 'Dashboard',
+    toggleTheme: 'Alternar tema',
+    language: 'Idioma',
+  },
+  dashboard: {
+    profileTitle: 'Perfil',
+    statusTitle: 'Status',
+    available: 'Disponível para oportunidades',
+    location: 'Localização',
+    timezone: 'Fuso horário',
+    languages: 'Idiomas',
+    contactCta: 'Entrar em contato',
+    architectureTitle: 'Arquitetura que mantenho em produção',
+    architectureHint: 'Fluxo simplificado do ERP: dos dispositivos físicos até o banco, com filas e jobs agendados.',
+    modulesTitle: 'Módulos do ERP que desenvolvo',
+    stackTitle: 'Stack',
+    experienceTitle: 'Experiência',
+    current: 'Atual',
+    principlesTitle: 'Princípios',
+    contactTitle: 'Contato',
+    contactText: 'Aberto a conversas sobre back end, arquitetura de sistemas e produtos usados o dia todo.',
+  },
+  labs: {
+    title: 'Labs',
+    subtitle: 'Projetos que você pode abrir e usar aqui mesmo.',
+    emptyTitle: 'Em breve',
+    emptyText: 'Estou preparando sistemas interativos para você testar direto no navegador.',
+    repo: 'Código',
+    demo: 'Abrir demo',
+    tryHere: 'Testar aqui',
+    close: 'Fechar',
+  },
+  notFound: {
+    title: 'Página não encontrada',
+    text: 'O endereço acessado não existe.',
+    back: 'Voltar ao dashboard',
+  },
+}
+
+export type Dictionary = typeof pt
