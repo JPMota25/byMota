@@ -17,6 +17,7 @@
 - [🧰 Stack](#-stack)
 - [⚡ Começando](#-começando)
 - [📜 Scripts](#-scripts)
+- [🔀 Fluxo de branches](#-fluxo-de-branches)
 - [🗂️ Estrutura de pastas](#️-estrutura-de-pastas)
 - [🎨 Estilização](#-estilização)
 - [🌐 Internacionalização](#-internacionalização)
@@ -24,7 +25,6 @@
 - [🧪 Labs](#-labs)
 - [🔒 Segurança](#-segurança)
 - [☁️ Deploy](#️-deploy)
-- [🗺️ Roadmap](#️-roadmap)
 
 ---
 
@@ -72,6 +72,26 @@ Acesse 👉 http://localhost:5173
 | `pnpm build` | 🏗️ Checagem de tipos + build de produção em `dist/` |
 | `pnpm preview` | 👀 Serve o build localmente |
 | `pnpm lint` | 🧹 ESLint |
+
+## 🔀 Fluxo de branches
+
+O repositório segue um **Git Workflow** baseado em releases. Por ser um projeto de uma pessoa só, **não usamos PBIs**: as features ficam registradas como [issues no GitHub](https://github.com/JPMota25/byMota/issues), agrupadas em milestones por release.
+
+| Branch | Sai de | Volta para | Exemplo |
+| --- | --- | --- | --- |
+| 🌳 `main` | — | — | código em produção |
+| 📦 `release/x.y.z` | `main` | `main` (com tag `vx.y.z`) | `release/0.2.0` |
+| ✨ `feat/<descricao>` | `release/x.y.z` | `release/x.y.z` | `feat/paleta-tema-claro` |
+| 🐛 `bugfix/<descricao>` | `main` | `main` + release aberta | `bugfix/flash-tema-mobile` |
+
+**Ciclo de uma entrega:**
+
+1. Crie a release a partir da `main`: `git switch -c release/0.2.0 main`
+2. Cada feature sai da release e volta para ela via PR: `git switch -c feat/paleta-tema-claro release/0.2.0`
+3. Com a release pronta, abra PR de `release/x.y.z` → `main`, faça o merge e crie a tag `vx.y.z`.
+4. Correções em produção saem da `main` (`bugfix/...`), voltam para a `main` e são levadas também para a release em andamento, para não se perderem.
+
+📌 Nomes de branch em minúsculas e com hífens. Commits seguem o [Conventional Commits](https://www.conventionalcommits.org/pt-br/) (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`...).
 
 ## 🗂️ Estrutura de pastas
 
@@ -163,15 +183,6 @@ Deploy na **Vercel**:
 1. Importe o repositório na Vercel. O preset **Vite** é detectado automaticamente.
 2. Build: `pnpm build` · Saída: `dist`
 3. O `vercel.json` já cuida do rewrite de SPA e dos headers de segurança.
-
-## 🗺️ Roadmap
-
-- [x] Dashboard com cards, tema dark/light e PT/EN
-- [x] Página Labs com listagem dinâmica
-- [ ] Foto de perfil
-- [ ] Primeiros projetos interativos no Labs (iframes)
-- [ ] Code splitting por rota
-- [ ] Domínio próprio
 
 ---
 
